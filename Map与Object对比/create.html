@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="reset">查看Map与Object创建时间</button>
+</body>
+<script type="text/javascript">
+    function create(){
+        console.clear()
+        // 速度
+        let n,n2 = 10;
+        while(n2--){
+            let t1 = performance.now();
+            n = 100000;
+            while(n--){
+                let m = {}
+            }
+            let t2 = performance.now();
+            n=100000;
+            while(n--){
+                let m = new Map()
+            }
+            let t3 = performance.now();
+            console.log(`Object Create:${t2-t1}ms,Map Create:${t3-t2}ms`)
+        }
+        // 内存
+        class Test {};
+        let test = new Test();
+        test.o = {};
+        test.m = new Map()
+    }
+    reset.onclick=create
+    
+</script>
+</html>
